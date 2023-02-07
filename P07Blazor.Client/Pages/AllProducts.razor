@@ -32,7 +32,7 @@
                                 @foreach (var p in ProductService.Products)
                                 {
                                     <tr role="row">
-                                        <td class="checkbox-column text-center sorting_1"> 1 </td>
+                                        <td class="checkbox-column text-center sorting_1"> @p.Id </td>
                                         <td class="text-center">
                                             <span><img src="@p.ImageUrl" class="profile-img" alt="avatar"></span>
                                         </td>
