@@ -4,6 +4,7 @@ namespace P07Blazor.Client.Services.ProductService
 {
     public interface IProductService
     {
-        Task<ServiceReponse<Product[]>> GetProducts();
+        Product[] Products { get; set; }
+        Task GetProducts();
     }
 }

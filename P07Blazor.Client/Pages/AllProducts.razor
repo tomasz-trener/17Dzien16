@@ -6,14 +6,14 @@
 
 <h3>AllProducts</h3>
 
-@if (Products == null)
+@if (ProductService.Products == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
 	<table>
-		@foreach (var p in Products)
+		@foreach (var p in ProductService.Products)
 		{
 			<tr>
 				<td>@p.Title</td>
@@ -30,17 +30,12 @@ else
 
 @code {
 
-	public Product[] Products; 
+	
 
 	protected override async Task OnInitializedAsync()
 	{
-
 		//var products = (await ProductService.GetProducts()).Data;
-
-		ServiceReponse<Product[]> resp = await ProductService.GetProducts();
-		Product[] products = resp.Data;
-		Products = products;
-
+		 await ProductService.GetProducts();
 	}
 
 }

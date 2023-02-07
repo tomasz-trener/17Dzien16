@@ -13,10 +13,13 @@ namespace P07Blazor.Client.Services.ProductService
             _httpClient = httpClient;
         }
 
-        public async Task<ServiceReponse<Product[]>> GetProducts()
+        public Product[] Products { get; set; }
+        
+        public async Task GetProducts()
         {
             var result = await _httpClient.GetFromJsonAsync<ServiceReponse<Product[]>>("api/product");
-            return result;
+
+            Products = result.Data;
         }
     }
 }
