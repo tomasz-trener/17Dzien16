@@ -38,7 +38,7 @@ builder.Services.AddCors(options =>
 //builder.Services.AddCors(options =>
 //{
 //    options.AddPolicy("MyCorsePolicy", builder =>
-//        builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("www.naszaStronaZKlientem.com"));
+//        builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://supershopblazor.azurewebsites.net"));
 //});
 
 
