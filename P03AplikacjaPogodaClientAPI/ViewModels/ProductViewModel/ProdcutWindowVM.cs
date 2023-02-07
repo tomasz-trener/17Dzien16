@@ -14,6 +14,14 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
     {
         public ObservableCollection<ProductVM> Products { get; set; }
 
+        private bool speaking = false;
+        public bool Speaking { get => speaking;
+            set
+            {
+                speaking = value;
+                OnPropertyChange();
+            }
+        }
 
         public DelegateCommand EditCommand { get; set; }
         public DelegateCommand DeleteCommand { get; set; }     
@@ -47,11 +55,13 @@ namespace P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel
 
         private async void SpeakProductDescription()
         {
+            Speaking = true;
             SpeechServiceTool sst = new SpeechServiceTool();
             string recognizeText = await sst.RecognizeAsync();
 
             selectedProduct.Description = recognizeText;
             OnPropertyChange("selectedProduct");
+            Speaking = false;
         }
 
         public async void CreateProduct()

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:P03AplikacjaPogodaClientAPI"
         xmlns:vm="clr-namespace:P03AplikacjaPogodaClientAPI.ViewModels.ProductViewModel"
         mc:Ignorable="d"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:uc="clr-namespace:P03AplikacjaPogodaClientAPI.Controls"
         xmlns:converters="clr-namespace:P03AplikacjaPogodaClientAPI.ViewModels.Converters"
         Title="ShopWindow" Height="450" Width="800">
@@ -16,6 +17,7 @@
     <Window.Resources>
         <converters:BitmapImageConverter x:Key="imageUrlToBitmapConv"/>
         <converters:ScreenHeightToRangeConverter x:Key="screenConverter" />
+        <BooleanToVisibilityConverter x:Key="boolToVisibilityConverter" />
 
         <Style x:Key="TextBlockStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="32" />
@@ -72,10 +74,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" ></ColumnDefinition>
                         <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     
                     <TextBox Text="{Binding SelectedProduct.Description, Mode=TwoWay}"></TextBox>
                     <Button Grid.Column="1" Content="Speak" Command="{Binding SpeakCommand}"></Button>
+
+                    <!--dotnet add package WpfAnimatedGif-->
+                    <Image Visibility="{Binding Speaking, Converter={StaticResource boolToVisibilityConverter}}" Grid.Column="2" Width="20" gif:ImageBehavior.AnimatedSource="/images/phone.gif" ></Image>
                 </Grid>
                 
                 

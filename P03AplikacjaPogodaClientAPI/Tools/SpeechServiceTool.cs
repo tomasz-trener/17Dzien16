@@ -33,7 +33,7 @@ namespace P03AplikacjaPogodaClientAPI.Tools
         private async Task<string> RecognizeFromMic(SpeechConfig speechConfig)
         {
             using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-            using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+            using var recognizer = new SpeechRecognizer(speechConfig,"pl-PL", audioConfig);
 
             var result = await recognizer.RecognizeOnceAsync();
             return result.Text;
