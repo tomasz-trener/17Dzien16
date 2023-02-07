@@ -21,14 +21,29 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddScoped<IProductService, ProductService>();  //obiekt jest tworzony za kazdymrazem dla nowego zapytania HTTP
- // od klienta - jedno zapytanie tworzny jedn¹ instancjê  
+                                                                // od klienta - jedno zapytanie tworzny jedn¹ instancjê  
 
 //builder.Services.AddTransient - obiekt jest tworzony za kazdym razem kiedy odwo³ujemy siê do konstruktora , nawet podczas 
- // trwania cyklu jednego zapytania 
+// trwania cyklu jednego zapytania 
 
 //builder.Services.AddSingleton - nowa instancja klasy Procduct service zostanie utworzona tylko 1 raz na ca³y cykl trwania naszej aplikacji
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsePolicy", builder =>
+        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+});
+
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("MyCorsePolicy", builder =>
+//        builder.AllowAnyHeader().AllowAnyMethod().WithOrigins("www.naszaStronaZKlientem.com"));
+//});
+
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
