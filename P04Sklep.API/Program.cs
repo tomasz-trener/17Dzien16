@@ -54,6 +54,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("MyCorsePolicy");
+
 app.UseAuthorization();
 
 app.MapControllers();
