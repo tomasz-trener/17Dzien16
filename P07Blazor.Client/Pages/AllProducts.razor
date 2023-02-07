@@ -1,0 +1,46 @@
+﻿@page "/allproducts"
+
+@using P05Sklep.Shared
+@using P07Blazor.Client.Services.ProductService
+@inject IProductService ProductService
+
+<h3>AllProducts</h3>
+
+@if (Products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+	<table>
+		@foreach (var p in Products)
+		{
+			<tr>
+				<td>@p.Title</td>
+				<td>@p.Description</td>
+				<td style="width:20px"><img src="@p.ImageUrl"></td>
+			</tr>
+		}
+	</table>
+}
+
+
+
+
+
+@code {
+
+	public Product[] Products; 
+
+	protected override async Task OnInitializedAsync()
+	{
+
+		//var products = (await ProductService.GetProducts()).Data;
+
+		ServiceReponse<Product[]> resp = await ProductService.GetProducts();
+		Product[] products = resp.Data;
+		Products = products;
+
+	}
+
+}

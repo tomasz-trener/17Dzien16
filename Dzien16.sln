@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P05Sklep.Shared", "P05Sklep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P06Sklep.DataSeeder", "P06Sklep.DataSeeder\P06Sklep.DataSeeder.csproj", "{F6874985-8045-4219-A8CE-D51872E0A087}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P07Blazor.Client", "P07Blazor.Client\P07Blazor.Client.csproj", "{5E5317EF-8F20-455C-924B-78F8E0EABBBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "P07Blazor.Client", "P07Blazor.Client\P07Blazor.Client.csproj", "{5E5317EF-8F20-455C-924B-78F8E0EABBBC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
