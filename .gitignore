@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /P07Blazor.Client/wwwroot/appsettings.json
+/P04Sklep.API/appsettings.Production.json
